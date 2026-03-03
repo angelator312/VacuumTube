@@ -21,6 +21,10 @@
             "title": "Ad Block",
             "description": "Seamlessly blocks video and feed ads, not subject to YouTube's methods of preventing blockers"
         },
+        "openurl": {
+            "title": "Open url",
+            "description": "Open Specific video, paste the URL"
+        },
         "sponsorblock": {
             "title": "SponsorBlock",
             "description": "Skips sponsor segments in YouTube videos using a crowdsourced database. Currently only supports skipping sponsors"

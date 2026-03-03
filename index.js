@@ -233,6 +233,12 @@ async function main() {
         }
     })
 
+    electron.ipcMain.handle('open-url', (event, url) => {
+      event.preventDefault();
+      // Handle the URL, e.g., update state or load in window
+      win.loadURL(url);
+      win.webContents.reload();
+    });
     electron.ipcMain.handle('get-deeplink', () => {
         let deeplink = argv._[argv._.length - 1]
         if (deeplink) {
@@ -309,7 +315,7 @@ async function main() {
             const filename = path.basename(filePath)
 
             if (!filename.endsWith('.css')) return;
-            
+
             console.log(`[Userstyles] Changed: ${filename}`)
 
             try {

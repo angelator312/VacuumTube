@@ -31,6 +31,7 @@ let currentItemIndex = 0;
 //settings
 let tabs = [
     { id: 'adblock' },
+    { id: 'openurl',func:()=>ipcRenderer.invoke('open-url','https://www.youtube.com/tv?env_enableMediaStreams=true#/watch?v=LuzXr3He9NI&list=RDLuzXr3He9NI&start_radio=1') },
     { id: 'sponsorblock' },
     { id: 'dearrow' },
     { id: 'dislikes' },
@@ -118,7 +119,7 @@ function createOverlayDOM() {
 
     const customContent = {
 
-        'userstyles': 
+        'userstyles':
         el('div', { className: 'vt-userstyles-section' }, [
             el('p', { className: 'vt-userstyles-description', textContent: locale.settings.userstyles.description }),
             el('div', {
@@ -151,7 +152,8 @@ function createOverlayDOM() {
             }, [
                 el('span', { textContent: locale.settings.userstyles.open_folder })
             ])
-        ])
+        ]),
+        'openurl':createSettingItem("openurl")
 
     }
 
